@@ -65,13 +65,11 @@
         </dependency>
 
         <!-- Spring Security -->
-        <!-- Uncomment when you implement security -->
-        <!--
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
-        -->
+
 
         <!-- Validation -->
         <dependency>
