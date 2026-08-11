@@ -27,7 +27,7 @@ The backend currently includes:
 * ✅ **Request Validation**
 * 🌐 **CORS & Stateless Security Configuration**
 * 🧪 **Spring Boot & Security Testing Support**
-* 📊 **Apache POI Integration for Excel Support**
+* 📊 **LOGIN BY USERNAME AND PASSWORD AFTER ACTIVATE PROFILE**
 * 🔒 **JWT Dependencies for Authentication**
 
 ## 📧 Mail Configuration
