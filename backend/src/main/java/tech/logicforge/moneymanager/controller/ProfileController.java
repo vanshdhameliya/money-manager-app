@@ -25,11 +25,33 @@ public class ProfileController {
     @GetMapping("/activation")
     public ResponseEntity<String> activateProfile(@RequestParam String token) {
         boolean isActivated = profileService.activationToken(token);
-        if(isActivated) {
+        if (isActivated) {
             return ResponseEntity.ok("Profile activated successfully");
         } else {
             return ResponseEntity.status(HttpStatus.NOT_FOUND)
                     .body("Activation token not found or user already used!");
         }
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<Map<String, Object>> login(@RequestBody AuthDto authDto) {
+        try {
+            if (!profileService.isAccountActive(authDto.getEmail())) {
+                return ResponseEntity.status(HttpStatus.FORBIDDEN).
+                        body(Map.of("Message", "Account is not Active. Please activate your Account first."));
+            }
+            Map<String, Object> response =
+                    profileService.authenticateAndGenerateToken(authDto);
+            return ResponseEntity.ok(response);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                    .body(Map.of("Message", "Email id or Password is incorrect!"));
+        }
+    }
+
+
+    @GetMapping("/test")
+    public String test() {
+        return "Test Successfully";
     }
 }
