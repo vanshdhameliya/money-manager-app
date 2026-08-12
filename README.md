@@ -9,7 +9,7 @@ A **Full-Stack Java application** designed to track, analyze, and manage persona
 * **Database:** MySQL
 * **Persistence:** Spring Data JPA, Hibernate
 * **Email:** Spring Mail, Brevo SMTP
-* **Utilities:** Lombok, Apache POI
+* **Utilities:** Lombok
 * **Mapping:** MapStruct
 * **Build Tool:** Maven
 
