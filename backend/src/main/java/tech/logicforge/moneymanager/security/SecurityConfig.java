@@ -20,7 +20,6 @@ import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import tech.logicforge.moneymanager.filter.JwtRequestFilter;
 import tech.logicforge.moneymanager.service.impl.AppUserDetailsService;
-
 import java.util.List;
 
 @Configuration
@@ -39,7 +38,8 @@ public class SecurityConfig {
                         auth.requestMatchers("/activation", "/login", "/register").permitAll()
                                 .anyRequest().authenticated())
                 .sessionManagement(session ->
-                        session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                        session.sessionCreationPolicy(
+                                SessionCreationPolicy.STATELESS))
                 .addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
 
         return httpSecurity.build();
