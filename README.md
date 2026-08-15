@@ -44,5 +44,3 @@ spring.mail.properties.mail.smtp.starttls.enable=true
 ```
 
 🚧 **Currently under development**
-
-The project is being developed step-by-step, with authentication, user management, security, and financial management features being added progressively.
