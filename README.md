@@ -6,8 +6,8 @@ A **Full-Stack Java application** designed to track, analyze, and manage persona
 
 * **Backend:** Java 26, Spring Boot 4.1
 * **Security:** Spring Security, BCrypt, JWT
-* **Database:** MySQL
-* **Persistence:** Spring Data JPA, Hibernate
+* **Database:** MySQL / PostgreSQL
+* **Persistence:**  Hibernate, Spring Data JPA
 * **Email:** Spring Mail, Brevo SMTP
 * **Utilities:** Lombok
 * **Mapping:** MapStruct
@@ -29,6 +29,14 @@ The backend currently includes:
 * 🧪 **Spring Boot & Security Testing Support**
 * 📊 **LOGIN BY USERNAME AND PASSWORD AFTER ACTIVATE PROFILE**
 * 🔒 **JWT Dependencies for Authentication**
+* 📊 **Login with Email & Password**
+* 👤 **Current User/Profile Retrieval**
+* 📁 **Category Management**
+* ➕ **Create Categories**
+* 📋 **Get User Categories**
+* 🔎 **Filter Categories by Type**
+* ✏️ **Update Categories**
+* 🔒 **User-Specific Category Ownership**
 
 ## 📧 Mail Configuration
 
