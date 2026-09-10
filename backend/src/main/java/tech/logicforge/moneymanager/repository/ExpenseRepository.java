@@ -13,12 +13,24 @@ import java.util.List;
 
 public interface ExpenseRepository extends JpaRepository<ExpenseEntity,Long> {
 
-    List<ExpenseEntity> findByProfileIdOrderByDateDesc(Long profileId);
+    List<ExpenseEntity> findByProfileEntityIdOrderByDateDesc(Long profileId);
 
-    List<ExpenseEntity> findTop5ByProfileIdOrderByDateDesc(Long profileId);
+    List<ExpenseEntity> findTop5ByProfileEntityIdOrderByDateDesc(Long profileId);
 
-    @Query("select SUM(e.amount) from ExpenseEntity e where e.profile_id = :profileId")
-    BigDecimal findTotalExpenseByProfileId(@Param("profileId") Long profileId);
+    @Query("select SUM(e.amount) from ExpenseEntity e where e.profileEntity.id = :profileId")
+    Double findTotalExpenseByProfileId(@Param("profileId") Long profileId);
 
-    List<ExpenseEntity> findByProfileIdAndDateBetweenAndNameContainingIgnoreCase(Long profileId, LocalDate startDate, LocalDate endDate, String keyword, Sort sort);
+    @Query("SELECT e FROM ExpenseEntity e " +
+            "WHERE e.profileEntity.id = :profileId " +
+            "AND e.date BETWEEN :startDate AND :endDate " +
+            "AND LOWER(e.name) LIKE LOWER(CONCAT('%', :name, '%'))")
+    List<ExpenseEntity> findByProfileEntityIdAndDateBetweenAndNameContainingIgnoreCase(
+            @Param("profileId") Long profileId,
+            @Param("startDate") LocalDate startDate,
+            @Param("endDate") LocalDate endDate,
+            @Param("name") String name,
+            Sort sort);
+
+    List<ExpenseEntity> findByProfileEntityIdAndDateBetween(Long profileId, LocalDate startDate, LocalDate endDate);
+
 }
