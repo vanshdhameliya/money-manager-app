@@ -32,6 +32,7 @@ The backend currently includes:
 * 📊 **Login with Email & Password**
 * 👤 **Current User/Profile Retrieval**
 * 📁 **Category Management**
+* ✏️ **Expense Management**
 * ➕ **Create Categories**
 * 📋 **Get User Categories**
 * 🔎 **Filter Categories by Type**
