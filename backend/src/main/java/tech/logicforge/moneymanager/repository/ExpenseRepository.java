@@ -10,6 +10,7 @@ import tech.logicforge.moneymanager.entity.IncomeEntity;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 public interface ExpenseRepository extends JpaRepository<ExpenseEntity,Long> {
 
@@ -18,7 +19,7 @@ public interface ExpenseRepository extends JpaRepository<ExpenseEntity,Long> {
     List<ExpenseEntity> findTop5ByProfileEntityIdOrderByDateDesc(Long profileId);
 
     @Query("select SUM(e.amount) from ExpenseEntity e where e.profileEntity.id = :profileId")
-    Double findTotalExpenseByProfileId(@Param("profileId") Long profileId);
+    BigDecimal findTotalExpenseByProfileId(@Param("profileId") Long profileId);
 
     @Query("SELECT e FROM ExpenseEntity e " +
             "WHERE e.profileEntity.id = :profileId " +
@@ -32,5 +33,7 @@ public interface ExpenseRepository extends JpaRepository<ExpenseEntity,Long> {
             Sort sort);
 
     List<ExpenseEntity> findByProfileEntityIdAndDateBetween(Long profileId, LocalDate startDate, LocalDate endDate);
+
+    Optional<ExpenseEntity> findByIdAndProfileEntityId(Long id, Long profileId);
 
 }
