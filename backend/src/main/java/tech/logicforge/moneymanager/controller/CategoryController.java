@@ -29,6 +29,7 @@ public class CategoryController {
         return ResponseEntity.ok(categories);
     }
 
+    // get category by type
     @GetMapping("/{type}")
     public ResponseEntity<List<CategoryDto>> getCategoriesByTypeForCurrentUser(
             @PathVariable String type) {
@@ -37,6 +38,7 @@ public class CategoryController {
         return ResponseEntity.ok(categories);
     }
 
+    // delete category by id
     @PutMapping("/{id}")
     public ResponseEntity<CategoryDto> updateCategory(
             @PathVariable Long id,
