@@ -60,7 +60,6 @@ public class DashBoardService {
         BigDecimal totalExpense = expenseService.getTotalExpenseForCurrentUser();
         BigDecimal totalBalance = totalIncome.subtract(totalExpense);
 
-        // 4. Assemble the dashboard payload map
         returnValue.put("totalBalance", totalBalance);
         returnValue.put("totalIncome", totalIncome);
         returnValue.put("totalExpense", totalExpense);
