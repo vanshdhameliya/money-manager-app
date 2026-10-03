@@ -18,6 +18,7 @@ A **Full-Stack Java application** designed to track, analyze, and manage persona
 The backend currently includes:
 
 * 👤 **User Registration & Profile Management**
+*     **Dashboard for user**
 * 🔐 **Spring Security Integration**
 * 🔑 **Secure Password Hashing with BCrypt**
 * 📧 **Email-Based Account Activation**
